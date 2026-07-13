@@ -1,0 +1,150 @@
+/* ===========================
+   Global Layout
+=========================== */
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7fa;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+
+.navbar {
+    height: 65px;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar .btn {
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar {
+    min-height: calc(100vh - 65px);
+    background: #1e293b;
+    border-right: 1px solid #e5e7eb;
+}
+
+.list-group {
+    border-radius: 0;
+}
+
+.list-group-item {
+    background: transparent;
+    color: #e2e8f0;
+    border: none;
+    padding: 15px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    background: #334155;
+    color: white;
+    padding-left: 28px;
+}
+
+.list-group-item.active {
+    background: #2563eb !important;
+    color: white !important;
+    border-left: 5px solid #facc15;
+    font-weight: bold;
+}
+
+/* ===========================
+   Content Area
+=========================== */
+
+.content {
+    background: #f8fafc;
+    min-height: calc(100vh - 120px);
+}
+
+.content h1,
+.content h2,
+.content h3 {
+    color: #1e293b;
+}
+
+/* Cards inside dashboard */
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer {
+    margin-top: auto;
+    background: white;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* ===========================
+   Responsive Design
+=========================== */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        min-height: auto;
+    }
+
+    .list-group-item {
+        text-align: center;
+    }
+
+    .content {
+        padding: 20px !important;
+    }
+
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+}

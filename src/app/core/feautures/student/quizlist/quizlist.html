@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>TITLE</th>
+      <th>DESCRIPTION</th>
+      <th>ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let quiz of (quizlist$ | async)">
+      <td>{{ quiz.title }}</td>
+      <td>{{ quiz.description }}</td>
+      <td>
+        <button (click)="startQuiz(quiz)" class="btn btn-sm btn-success">
+          Start Quiz
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

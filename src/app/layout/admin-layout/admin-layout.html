@@ -1,0 +1,45 @@
+<div class="wrapper">
+    <nav class="navbar">
+        <div class="logo">Online Quiz Admin</div>
+        <div class="nav-right">
+            <span>Welcome {{username}}</span>
+            <button (click)="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="main">
+        <aside class="sidebar">
+            <ul>
+                <li>
+                    <a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+                </li>
+                <li>
+                    <a routerLink="/admin/users" routerLinkActive="active">Manage Users</a>
+                </li>
+                <!-- <li>
+                    <a routerLink="/admin/" routerLinkActive="active">Categories</a>
+                </li> -->
+                <li>
+                    <a routerLink="/admin/quiz" routerLinkActive="active">Manage Quizzes</a>
+                </li>
+                <li>
+                    <a routerLink="/admin/questions" routerLinkActive="active">Questions</a>
+                </li>
+                <li>
+                    <a routerLink="/admin/results" routerLinkActive="active">Status</a>
+                </li>
+                <li>
+                    <a routerLink="/admin/profile" routerLinkActive="active">Profile</a>
+                </li>
+            </ul>
+        </aside>
+
+        <section class="content">
+            <router-outlet></router-outlet>
+        </section>
+    </div>
+
+    <footer>
+        © 2026 Online Quiz Application | Admin Panel
+    </footer>
+</div>

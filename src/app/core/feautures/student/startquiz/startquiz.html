@@ -1,0 +1,69 @@
+<div class="quiz-container" *ngIf="!isLoading && questions.length > 0">
+  <div class="progress-text">
+    Question {{ currentQuestion + 1 }} of {{ questions.length }}
+  </div>
+
+  <div class="question-card">
+
+    <h3 class="question">
+      {{ questions[currentQuestion].questionText }}
+    </h3>
+    
+    <div
+      class="option"
+      *ngFor="let option of questions[currentQuestion].options">
+
+      <label>
+        <input
+          type="radio"
+          name="answer{{currentQuestion}}"
+          [value]="option.id"
+          [(ngModel)]="selectedAnswers[currentQuestion]">
+
+        {{ option.optionText }}
+      </label>
+
+    </div>
+
+  </div>
+
+  <div class="buttons">
+
+    <button
+      class="btn btn-secondary"
+      (click)="previousQuestion()"
+      [disabled]="currentQuestion==0">
+
+      Previous
+
+    </button>
+
+    <button
+      *ngIf="currentQuestion < questions.length-1"
+      class="btn btn-primary"
+      (click)="nextQuestion()">
+
+      Next
+
+    </button>
+
+    <button
+      *ngIf="currentQuestion==questions.length-1"
+      class="btn btn-success"
+      (click)="submitQuiz()">
+
+      Submit Quiz
+
+    </button>
+
+  </div>
+
+</div>
+
+<div *ngIf="isLoading" class="text-center mt-5">
+  Loading Questions...
+</div>
+
+<div *ngIf="!isLoading && questions.length === 0" class="text-center mt-5">
+  No Questions Found
+</div>

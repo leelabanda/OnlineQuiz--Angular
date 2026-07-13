@@ -1,0 +1,17 @@
+<div class="login-container">
+    <div class="card">
+        <h2>Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <input placeholder="Email" formControlName="email">
+            <input type="password" placeholder="Password" formControlName="password">
+                    <div class="text-end mt-2">
+        </div>
+            <button>Login</button>
+            <p>{{error}}</p>
+        </form>
+        <div class="links-row">
+      <a routerLink="/register">Create Account</a>
+      <a routerLink="/forgot-password" routerLinkActive="active">Forgot Password?</a>
+    </div>
+    </div>
+</div>

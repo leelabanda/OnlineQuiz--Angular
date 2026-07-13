@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h3 class="mb-3">My Quiz Results</h3>
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>S.No</th>
+        <th>Quiz Title</th>
+        <th>Score</th>
+        <th>Status</th>
+        <th>Attempted At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let attempt of attempts; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ attempt.quizTitle }}</td>
+        <td>{{ attempt.score }}</td>
+        <td>{{ attempt.status }}</td>
+        <td>{{ attempt.attemptedAt | date:'dd-MM-yyyy HH:mm' }}</td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="openResult(attempt.id)">
+            View
+          </button>
+        </td>
+      </tr>
+
+      <tr *ngIf="attempts.length === 0">
+        <td colspan="6" class="text-center">
+          No quiz results found.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

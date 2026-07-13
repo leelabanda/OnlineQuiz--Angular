@@ -1,0 +1,35 @@
+<div class="container mt-5 text-center">
+
+  <div class="card shadow p-5 mx-auto" style="max-width: 600px; border-radius: 15px;">
+
+    <h1 class="text-success">Quiz Completed!</h1>
+
+    <h3 class="text-muted">{{ quizTitle }}</h3>
+
+    <hr />
+
+    <div class="row my-4 bg-light p-4 rounded">
+
+      <div class="col-6 border-end">
+        <h5>Correct</h5>
+        <h2>{{ correct }} / {{ totalQuestions }}</h2>
+      </div>
+
+      <div class="col-6">
+        <h5>Score</h5>
+        <h2>{{ score }} / {{ maxMarks }}</h2>
+      </div>
+
+    </div>
+
+    <p class="text-danger">
+      Wrong Answers: {{ wrong }}
+    </p>
+
+    <button  class="btn btn-primary" (click)="goToDashboard()">
+      Back to Dashboard
+    </button>
+
+  </div>
+
+</div>

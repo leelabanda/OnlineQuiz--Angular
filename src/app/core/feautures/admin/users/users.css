@@ -1,0 +1,69 @@
+.table-container {
+  padding: 20px;
+  background: white;
+  width: 100%;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* This forces the browser to respect your widths */
+  margin-top: 20px;
+  border: 1px solid #ddd;
+}
+
+/* Set specific widths for columns */
+.user-table th:nth-child(1), .user-table td:nth-child(1) { width: 50px; }  /* # */
+.user-table th:nth-child(2), .user-table td:nth-child(2) { width: 120px; } /* User Name */
+.user-table th:nth-child(3), .user-table td:nth-child(3) { width: 150px; } /* Email */
+.user-table th:nth-child(4), .user-table td:nth-child(4) { width: 60px; }  /* Score */
+.user-table th:nth-child(5), .user-table td:nth-child(5) { width: 100px; } /* Status */
+.user-table th:nth-child(6), .user-table td:nth-child(6) { width: 100px; } /* Role */
+
+.user-table th, .user-table td {
+  padding: 10px; /* Reduced padding for a more compact look */
+  border: 1px solid #ddd;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." if text is too long */
+  white-space: nowrap;
+  font-size: 14px; /* Slightly smaller text for better density */
+}
+
+.user-table thead {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+.btn-edit, .btn-delete {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-edit { background-color: #ffc107; color: #000; }
+.btn-delete { background-color: #dc3545; color: #fff; }
+.btn-edit:hover { background-color: #e0a800; }
+.btn-delete:hover { background-color: #c82333; }
+.loading-state {
+  padding: 20px;
+  text-align: center;
+  font-style: italic;
+}
+@media (max-width: 500px) {
+  .card {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

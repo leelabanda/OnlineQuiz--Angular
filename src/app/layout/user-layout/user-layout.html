@@ -1,0 +1,76 @@
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" routerLink="/user/dashboard">
+        Quiz Application
+      </a>
+
+      <div class="ms-auto d-flex align-items-center">
+        <span class="text-white me-3">
+          Welcome {{ username }}
+        </span>
+
+        <button class="btn btn-light btn-sm" (click)="logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+      <div class="col-md-3 col-lg-2 sidebar p-0">
+
+        <div class="list-group rounded-0">
+
+         <a
+  routerLink="/student/dashboard"
+  routerLinkActive="active"
+  class="list-group-item list-group-item-action">
+  Dashboard
+</a>
+
+<a
+  routerLink="/student/quiz"
+  routerLinkActive="active"
+  class="list-group-item list-group-item-action">
+  Available Quizzes
+</a>
+
+<a
+  routerLink="/student/my-results"
+  routerLinkActive="active"
+  class="list-group-item list-group-item-action">
+  My Results
+</a>
+
+<a
+  routerLink="/student/profile"
+  routerLinkActive="active"
+  class="list-group-item list-group-item-action">
+  Profile
+</a>
+        </div>
+
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-9 col-lg-10 p-4 content">
+
+        <router-outlet></router-outlet>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3 border-top">
+    <small>© 2026 Online Quiz Application. All Rights Reserved.</small>
+  </footer>
+
+</div>

@@ -1,0 +1,23 @@
+<div class="profile-container" *ngIf="user">
+  <h2>User Profile</h2>
+
+  <div class="profile-item">
+    <label>Name:</label>
+    <span>{{ user?.name }}</span>
+  </div>
+
+  <div class="profile-item">
+    <label>Email:</label>
+    <span>{{ user?.email }}</span>
+  </div>
+
+  <div class="profile-item">
+    <label>Role:</label>
+    <span>{{ user?.role }}</span>
+  </div>
+  <button (click)="editProfile()">Edit Profile</button>
+</div>
+
+<div *ngIf="!user" class="loading">
+  Loading profile...
+</div>

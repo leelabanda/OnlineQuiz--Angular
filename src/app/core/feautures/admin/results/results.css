@@ -1,0 +1,41 @@
+/* Layout the cards in a row using Flexbox */
+.dashboard-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* Base style for all cards */
+.card {
+  flex: 1;
+  min-width: 200px;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Assigning specific colors */
+.card-users { background-color: #27ae60; }     /* Green */
+.card-attempts { background-color: #f39c12; }  /* Orange */
+.card-progress { background-color: #3498db; }  /* Blue */
+.card-completed { background-color: #9b59b6; } /* Purple */
