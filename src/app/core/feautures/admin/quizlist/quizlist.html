@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>TITLE</th>
+      <th>DESCRIPTION</th>
+      <th>TOTAL QUESTIONS</th>
+      <th>ACTIONS</th>
+      <th>View Questions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let quiz of (quizlist$ | async)">
+      <td>{{ quiz.title }}</td>
+      <td>{{ quiz.description }}</td>
+      <td>{{quiz.questions?.length}}</td>
+      <td>
+        <button (click)="edit(quiz)" class="btn btn-sm btn-success">
+          Edit
+        </button>
+        <button (click)="delete(quiz.id)" class="btn btn-sm">Delete</button>
+      </td>
+            <td>
+        <button
+          class="btn btn-primary btn-sm"
+          (click)="viewQuestionsList(quiz.id)">
+          View Questions
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

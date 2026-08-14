@@ -1,0 +1,32 @@
+<div class="form-container">
+  <form [formGroup]="validateForm">
+    <select formControlName="quiz" (change)="viewReport()">
+      <option value="">-- Select Quiz --</option>
+      <option *ngFor="let quiz of quizzes" [value]="quiz.id">
+        {{ quiz.title }}
+      </option>
+    </select>
+  </form>
+
+  <table class="table" *ngIf="students.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Score</th>
+        <th>Status</th>
+        <th>Attempt Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.studentName }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.score }}</td>
+        <td>{{ student.status }}</td>
+        <td>{{ student.attemptedAt | date:'dd-MM-yyyy HH:mm' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

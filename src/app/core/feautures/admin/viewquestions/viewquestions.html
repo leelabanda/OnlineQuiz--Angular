@@ -1,0 +1,59 @@
+<div class="container">
+
+  <div class="header">
+    <h2>Quiz Questions</h2>
+
+          <button class="edit-btn"
+                  (click)="addQuestion()">
+            Add Questions
+          </button>
+  </div>
+
+  <!-- Debug -->
+  <p>Total Questions : {{ questions.length }}</p>
+
+  <table class="question-table">
+
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Question</th>
+        <th>Marks</th>
+        <th>Total Options</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let question of questions; let i = index">
+
+        <td>{{ i + 1 }}</td>
+
+        <td>{{ question.questionText }}</td>
+
+        <td>{{ question.marks }}</td>
+
+        <td>{{ question.options?.length }}</td>
+
+        <td>
+
+          <button class="edit-btn"
+                  (click)="editQuestion(question)">
+            Edit
+          </button>
+
+          <button class="delete-btn"
+                  (click)="delete(question.id)">
+            Delete
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

@@ -16,7 +16,8 @@ export class Quiz {
   constructor(private fb:FormBuilder,private quizService:QuizService,private router:Router ){
     this.validateForm=this.fb.group({
        title:['',Validators.required],
-      description:['',Validators.required]
+      description:['',Validators.required],
+      duration:['',Validators.required]
     })
   }
    submitForm(): void {
@@ -26,12 +27,14 @@ export class Quiz {
     }
     console.log('Payload:', {
         title: this.validateForm.value.title,
-        description: this.validateForm.value.description
+        description: this.validateForm.value.description,
+        duration:this.validateForm.value.duration
     });
     // This payload matches QuizCreateDto exactly
     const quizPayload = {
         title: this.validateForm.value.title,
-        description: this.validateForm.value.description
+        description: this.validateForm.value.description,
+        duration:this.validateForm.value.duration
     };
 
     this.quizService.register(quizPayload).subscribe({

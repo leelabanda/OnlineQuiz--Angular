@@ -27,7 +27,7 @@ export class Quizlist {
       })
     );
   }
-
+  
   viewQuestions(quizId: number): void {
     console.log('Filtering views for Quiz ID:', quizId);
     this.router.navigate(['/questions'], { state: { targetQuizId: quizId } });
@@ -37,7 +37,8 @@ export class Quizlist {
     localStorage.setItem('quizId',quiz.id);
   const quizId = quiz.id || quiz.quizId;
   const title=quiz.title||quiz.quizTitle;
-
+  localStorage.setItem('quizId', quiz.id);
+  localStorage.setItem('duration', quiz.duration.toString()); // minutes
   this.router.navigate(
     ['/student/startquiz', title]
   );

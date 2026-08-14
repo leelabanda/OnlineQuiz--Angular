@@ -1,6 +1,6 @@
 <div class="table-container">
   <h2>Quiz Users</h2>
-  
+
   <table class="user-table" *ngIf="users$ | async as users; else loading">
 
     <thead>
@@ -8,9 +8,9 @@
         <th>#</th>
         <th>User Name</th>
         <th>Email</th>
-        <th>Score</th>
+        <!-- <th>Score</th>
         <th>Completed Time</th>
-        <th>Status</th>
+        <th>Status</th> -->
         <th>Role</th>
         <th>Actions</th>
       </tr>
@@ -22,9 +22,9 @@
         <td>{{ i + 1 }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ getLatestAttempt(user)?.score ?? '-' }}</td>
+        <!-- <td>{{ getLatestAttempt(user)?.score ?? '-' }}</td>
         <td>{{user.completedAt|date:'dd/MM/yyyy hh:mm a'}}</td>
-        <td>{{ getLatestAttempt(user)?.status ?? '-' }}</td>
+        <td>{{ getLatestAttempt(user)?.status ?? '-' }}</td> -->
         <td>{{ user.role }}</td>
 
         <td>

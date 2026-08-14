@@ -3,6 +3,7 @@
     <tr>
       <th>TITLE</th>
       <th>DESCRIPTION</th>
+      <th>DURATION</th>
       <th>ACTIONS</th>
     </tr>
   </thead>
@@ -10,6 +11,8 @@
     <tr *ngFor="let quiz of (quizlist$ | async)">
       <td>{{ quiz.title }}</td>
       <td>{{ quiz.description }}</td>
+      <td>{{ quiz.duration }} Minutes</td>
+
       <td>
         <button (click)="startQuiz(quiz)" class="btn btn-sm btn-success">
           Start Quiz

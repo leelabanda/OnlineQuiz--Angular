@@ -30,6 +30,6 @@ export class Profile {
   }
   editProfile(){
     console.log("Edit button clicked");
-    this.router.navigate(['/admin/edit-profile']);
+    this.router.navigate(['/student/edit-profile']);
   }
 }

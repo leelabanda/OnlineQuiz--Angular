@@ -1,0 +1,118 @@
+<div class="form-container">
+  <h2>Questions Create</h2>
+
+  <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+    <!-- Quiz Selection -->
+<select formControlName="quiz">
+  <option value="">-- Select Quiz --</option>
+  <option *ngFor="let quiz of quizzes" [value]="quiz.id">
+{{ quiz.id }} - {{ quiz.title }}
+</option>
+</select>
+    <!-- Question Type -->
+    <div class="form-group">
+      <label for="questionType">Question Format</label>
+
+      <select id="questionType" formControlName="questionType">
+        <option value="single">Multiple Choice (Single Answer)</option>
+        <option value="multiple">Multiple Response (Multiple Answers)</option>
+        <option value="boolean">True / False</option>
+      </select>
+    </div>
+
+    <!-- Question -->
+    <div class="form-group">
+      <label>Question Text</label>
+
+      <textarea
+        rows="4"
+        formControlName="questionText">
+      </textarea>
+    </div>
+
+    <!-- Marks -->
+    <div class="form-group">
+      <label>Marks</label>
+
+      <input
+        type="number"
+        formControlName="marks">
+    </div>
+
+    <!-- Options -->
+    <div class="options-container">
+
+      <h3>Answer Choices</h3>
+
+      <div formArrayName="options">
+
+        <div
+          *ngFor="let option of optionsArray.controls; let i = index"
+          [formGroupName]="i"
+          class="option-row">
+
+          <!-- Multiple Choice -->
+          <ng-container *ngIf="validateForm.value.questionType == 'multiple'">
+
+            <input
+              type="checkbox"
+              formControlName="isCorrect">
+
+            <input
+              type="text"
+              formControlName="optionText"
+              placeholder="Option {{ i + 1 }}">
+
+          </ng-container>
+
+          <!-- Single Choice -->
+          <ng-container *ngIf="validateForm.value.questionType == 'single'">
+
+            <input
+              type="radio"
+              name="singleCorrect"
+              [checked]="option.get('isCorrect')?.value"
+              (change)="onRadioSelect(i)">
+
+            <input
+              type="text"
+              formControlName="optionText"
+              placeholder="Option {{ i + 1 }}">
+
+          </ng-container>
+
+          <!-- True / False -->
+          <ng-container *ngIf="validateForm.value.questionType == 'boolean'">
+
+            <input
+              type="radio"
+              name="booleanCorrect"
+              [checked]="option.get('isCorrect')?.value"
+              (change)="onRadioSelect(i)">
+
+            <label>
+              {{ option.get('optionText')?.value }}
+            </label>
+
+          </ng-container>
+
+          <small
+            *ngIf="submitted && option.get('optionText')?.invalid"
+            style="color:red;">
+            Required field
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button type="submit">
+      Save Question
+    </button>
+
+  </form>
+
+</div>

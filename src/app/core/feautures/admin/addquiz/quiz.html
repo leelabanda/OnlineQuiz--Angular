@@ -11,6 +11,16 @@
       <label for="description">Description:</label>
       <input type="text" id="description" formControlName="description" required>
     </div>
+  <div class="form-group">
+      <label for="duration">Duration (Minutes):</label>
+      <input
+        type="number"
+        id="duration"
+        formControlName="duration"
+        placeholder="Enter duration"
+        min="1">
+    </div>
+
     <button type="submit">Submit</button>
   </form>
 </div>

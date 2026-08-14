@@ -14,8 +14,8 @@ export class Auth {
   login(data:LoginRequest):Observable<LoginResponse>{
     return this.http.post<LoginResponse>(this.api+"/login",data);
   }
-  register(data:RegisterRequest){
-        return this.http.post(this.api+"/register",data,{responseType:'text'});
+  register(data:RegisterRequest):Observable<LoginResponse>{
+        return this.http.post<LoginResponse>(this.api+"/register",data);
   }
   sendOtp(email:string){return this.http.post(this.api+"/forgot-password",{email},{responseType:'text'});
 }

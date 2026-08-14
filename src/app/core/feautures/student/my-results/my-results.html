@@ -22,6 +22,13 @@
         <td>{{ attempt.attemptedAt | date:'dd-MM-yyyy HH:mm' }}</td>
         <td>
           <button
+            *ngIf="attempt.status === 'IN_PROGRESS'"
+            class="btn btn-warning btn-sm"
+            (click)="continueQuiz(attempt)">
+            Continue Quiz
+          </button>
+          <button
+                *ngIf="attempt.status === 'COMPLETED'"
             class="btn btn-primary btn-sm"
             (click)="openResult(attempt.id)">
             View

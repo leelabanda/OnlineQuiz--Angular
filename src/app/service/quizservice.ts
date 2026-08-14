@@ -43,4 +43,7 @@ getStudentResults(userId: number) {
   getResult(attemptId: number): Observable<any> {
     return this.http.get(`http://localhost:8080/api/attempt/result/${attemptId}`);
   }
+  deletequiz(id: number){
+    return this.http.delete(`https://localhost:8080/api/quiz/${id}`);
+    }
 }

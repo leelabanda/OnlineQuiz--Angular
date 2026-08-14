@@ -27,20 +27,46 @@ export class MyResults implements OnInit {
     this.quizService.getStudentResults(userId).subscribe({
 
       next: (res: any) => {
-        this.attempts = res.data;
+        this.attempts = res.data || [];
 
-        // Trigger change detection manually
+        // Manual change detection
         this.cdr.detectChanges();
       },
 
       error: (err) => {
-        console.error(err);
+        console.error("Error loading results:", err);
       }
 
     });
   }
 
+
+ continueQuiz(attempt: QuizResult): void {
+
+  localStorage.setItem(
+    'quizId',
+    attempt.quizId.toString()
+  );
+
+  localStorage.setItem(
+    `attemptId_${attempt.quizId}`,
+    attempt.id.toString()
+  );
+
+  this.router.navigate([
+    '/student/startquiz',
+    encodeURIComponent(attempt.quizTitle)
+  ]);
+
+}
+
   openResult(id: number): void {
-    this.router.navigate(['/student/results', id]);
+
+    this.router.navigate([
+      '/student/results',
+      id
+    ]);
+
   }
+
 }

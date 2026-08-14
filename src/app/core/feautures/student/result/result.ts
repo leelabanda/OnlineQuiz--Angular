@@ -18,6 +18,7 @@ export class Result {
   maxMarks = 0;
   correct = 0;
   wrong = 0;
+answers: any[] = [];
 
   attemptId!: number;
 
@@ -35,7 +36,7 @@ export class Result {
     console.log("Attempt Id:", this.attemptId);
 
     this.quizTitle = localStorage.getItem('quizTitle') || '';
-
+    
     this.loadResult();
   }
 
@@ -59,4 +60,7 @@ export class Result {
     });
 
   }
+viewAnswers(): void {
+  this.router.navigate(['/student/answer-review', this.attemptId]);
+}
 }

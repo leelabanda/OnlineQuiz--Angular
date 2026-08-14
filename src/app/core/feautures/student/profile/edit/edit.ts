@@ -12,7 +12,7 @@ import { User } from '../../../../../model/user';
   templateUrl: './edit.html',
   styleUrls: ['./edit.css']
 })
-export class EditProfile {
+export class SEditProfile {
   user: User = {
     id: 0,
     name: '',

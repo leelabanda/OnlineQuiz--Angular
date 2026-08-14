@@ -1,0 +1,34 @@
+<div class="container">
+
+  <h2>Edit Quiz</h2>
+
+  <form (ngSubmit)="updateQuiz()">
+
+    <div class="mb-3">
+      <label>Title</label>
+
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="quiz.title"
+        name="title"
+        required>
+    </div>
+
+    <div class="mb-3">
+      <label>Description</label>
+
+      <textarea
+        class="form-control"
+        [(ngModel)]="quiz.description"
+        name="description">
+      </textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+      Update Quiz
+    </button>
+
+  </form>
+
+</div>

@@ -1,69 +1,126 @@
 <div class="quiz-container" *ngIf="!isLoading && questions.length > 0">
-  <div class="progress-text">
-    Question {{ currentQuestion + 1 }} of {{ questions.length }}
-  </div>
 
-  <div class="question-card">
+    <!-- Header -->
+    <div class="quiz-header">
 
-    <h3 class="question">
-      {{ questions[currentQuestion].questionText }}
-    </h3>
-    
-    <div
-      class="option"
-      *ngFor="let option of questions[currentQuestion].options">
+        <h2>Online Quiz</h2>
 
-      <label>
-        <input
-          type="radio"
-          name="answer{{currentQuestion}}"
-          [value]="option.id"
-          [(ngModel)]="selectedAnswers[currentQuestion]">
+        <div class="timer"
+            [ngClass]="{
+              'warning': timeLeft <= 60 && timeLeft > 30,
+              'danger': timeLeft <= 30
+            }">
 
-        {{ option.optionText }}
-      </label>
+            ⏰
+            {{ minutes < 10 ? '0'+minutes : minutes }} :
+            {{ seconds < 10 ? '0'+seconds : seconds }}
+
+        </div>
 
     </div>
 
-  </div>
+    <!-- Progress -->
+    <div class="progress mt-3">
+        <div
+            class="progress-bar"
+            role="progressbar"
+            [style.width.%]="((currentQuestion+1)/questions.length)*100">
 
-  <div class="buttons">
+            {{currentQuestion+1}} / {{questions.length}}
 
-    <button
-      class="btn btn-secondary"
-      (click)="previousQuestion()"
-      [disabled]="currentQuestion==0">
+        </div>
+    </div>
 
-      Previous
+    <!-- Question Numbers -->
+    <div class="question-navigation mt-4">
 
-    </button>
+        <button
+            *ngFor="let q of questions; let i=index"
+            class="question-btn"
 
-    <button
-      *ngIf="currentQuestion < questions.length-1"
-      class="btn btn-primary"
-      (click)="nextQuestion()">
+            [ngClass]="{
+                'active': currentQuestion==i,
+                'answered': selectedAnswers[q.id]
+            }"
 
-      Next
+            (click)="currentQuestion=i">
 
-    </button>
+            {{i+1}}
 
-    <button
-      *ngIf="currentQuestion==questions.length-1"
-      class="btn btn-success"
-      (click)="submitQuiz()">
+        </button>
 
-      Submit Quiz
+    </div>
 
-    </button>
+    <!-- Question -->
+    <div class="question-card mt-4">
 
-  </div>
+        <h4>
+
+            Q{{currentQuestion+1}}.
+            {{questions[currentQuestion].questionText}}
+
+        </h4>
+
+        <div
+            *ngFor="let option of questions[currentQuestion].options"
+            class="option-card">
+
+            <label>
+
+               <input
+    type="radio"
+    [name]="'answer'+questions[currentQuestion].id"
+    [value]="option.id"
+    [(ngModel)]="selectedAnswers[questions[currentQuestion].id]"(change)="saveAnswer(
+      questions[currentQuestion].id,option.id
+    )">
+
+                {{option.optionText}}
+
+            </label>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Buttons -->
+    <div class="buttons mt-4">
+
+        <button
+            class="btn btn-outline-secondary"
+            (click)="previousQuestion()"
+            [disabled]="currentQuestion==0">
+
+            ◀ Previous
+
+        </button>
+
+        <button
+            *ngIf="currentQuestion < questions.length-1"
+            class="btn btn-primary"
+            (click)="nextQuestion()">
+
+            Next ▶
+
+        </button>
+
+        <button
+            *ngIf="currentQuestion==questions.length-1"
+            class="btn btn-success"
+            (click)="submitQuiz()">
+
+            Submit Quiz
+
+        </button>
+
+    </div>
 
 </div>
 
 <div *ngIf="isLoading" class="text-center mt-5">
-  Loading Questions...
+    <h4>Loading Questions...</h4>
 </div>
 
-<div *ngIf="!isLoading && questions.length === 0" class="text-center mt-5">
-  No Questions Found
+<div *ngIf="!isLoading && questions.length==0" class="text-center mt-5">
+    <h4>No Questions Available</h4>
 </div>

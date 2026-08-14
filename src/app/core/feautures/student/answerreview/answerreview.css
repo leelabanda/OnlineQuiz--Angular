@@ -1,0 +1,25 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.card-header {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 18px;
+}
+
+.card-body h5 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-body p {
+    margin-bottom: 8px;
+    font-size: 16px;
+}

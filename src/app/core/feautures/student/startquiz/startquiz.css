@@ -62,3 +62,160 @@
     justify-content:space-between;
 
 }
+/* Quiz Container */
+.quiz-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* Timer */
+.timer {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #ffffff;
+    color: #0d6efd;
+
+    padding: 10px 18px;
+
+    border: 2px solid #0d6efd;
+    border-radius: 30px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.timer-icon {
+    font-size: 22px;
+}
+
+.timer-text {
+    color: #555;
+    font-size: 15px;
+}
+
+.timer-value {
+    font-size: 22px;
+    font-weight: bold;
+    color: #dc3545;
+    min-width: 70px;
+    text-align: center;
+    font-family: monospace;
+}
+.timer.warning {
+    background: #fff3cd;
+    border-color: #ffc107;
+}
+
+.timer.danger {
+    background: #ffe5e5;
+    border-color: #dc3545;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.quiz-container{
+    width:80%;
+    margin:auto;
+    padding:25px;
+}
+
+.quiz-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.timer{
+    font-size:22px;
+    font-weight:bold;
+    color:#198754;
+}
+
+.timer.warning{
+    color:orange;
+}
+
+.timer.danger{
+    color:red;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0.4;
+    }
+}
+
+.progress{
+    height:22px;
+}
+
+.question-navigation{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.question-btn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:#dee2e6;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.question-btn.active{
+    background:#0d6efd;
+    color:white;
+}
+
+.question-btn.answered{
+    background:#198754;
+    color:white;
+}
+
+.question-card{
+    margin-top:20px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 8px rgba(0,0,0,.2);
+}
+
+.option-card{
+    margin:15px 0;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.option-card:hover{
+    background:#f8f9fa;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+}

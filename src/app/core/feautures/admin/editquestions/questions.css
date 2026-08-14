@@ -1,0 +1,140 @@
+/* Container */
+
+.form-container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Heading */
+
+.form-container h2 {
+    text-align: center;
+    color: #1d3b8b;
+    margin-bottom: 25px;
+}
+
+/* Form Group */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Inputs */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: .3s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1d3b8b;
+    box-shadow: 0 0 5px rgba(29,59,139,.3);
+}
+
+/* Options */
+
+.options-container {
+    margin-top: 25px;
+}
+
+.options-container h3 {
+    color: #1d3b8b;
+    margin-bottom: 15px;
+}
+
+/* Each option */
+
+.option-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.option-row input[type="text"] {
+    flex: 1;
+}
+
+.option-row input[type="radio"],
+.option-row input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.option-row label {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Button */
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #1d3b8b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: .3s;
+}
+
+button[type="submit"]:hover {
+    background: #162f6b;
+}
+
+/* Validation */
+
+small {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Responsive */
+
+@media (max-width:768px) {
+
+    .form-container {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .option-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .option-row input[type="text"] {
+        width: 100%;
+    }
+
+    button[type="submit"] {
+        font-size: 16px;
+    }
+}

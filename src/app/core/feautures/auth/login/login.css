@@ -76,6 +76,7 @@ body {
    Form
 =========================== */
 form {
+    color:white;
     display: flex;
     flex-direction: column;
 }
@@ -86,9 +87,8 @@ form {
 input {
     width: 100%;
     padding: 14px 16px;
-
     margin-bottom: 18px;
-
+color:black;
     border: 1px solid #d6d6d6;
     border-radius: 8px;
 
